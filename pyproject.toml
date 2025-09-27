@@ -1,0 +1,23 @@
+[project]
+name = "education-management-system"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Shubhneet",email = "shubhneet.srivastava@gmail.com"}
+]
+packages = [
+    { include = "education_management_system" }
+]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi (>=0.117.1,<0.118.0)",
+    "uvicorn (>=0.37.0,<0.38.0)",
+    "sqlalchemy (>=2.0.43,<3.0.0)",
+    "pydentic (>=0.0.1.dev3,<0.0.2)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
