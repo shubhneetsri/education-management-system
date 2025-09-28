@@ -1,9 +1,9 @@
 name: Dockerized FastAPI Tests
 
 on:
-  push:          # run on any branch push
+  push:
     branches: [ "**" ]
-  pull_request:  # run on any PR
+  pull_request:
     branches: [ "**" ]
 
 jobs:
@@ -23,6 +23,10 @@ jobs:
       - name: Build Docker image
         run: docker build -t ems:latest .
 
-      # Step 4: Run pytest inside the container
+      # Step 4: List files to verify tests exist
+      - name: List tests folder inside container
+        run: docker run --rm ems:latest ls -R /app/education_management_system/education_management_system/tests
+
+      # Step 5: Run pytest inside the container
       - name: Run tests inside Docker
-        run: docker run --rm ems:latest pytest tests/ -v
+        run: docker run --rm ems:latest pytest education_management_system/education_management_system/tests/ -v
