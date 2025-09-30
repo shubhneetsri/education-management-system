@@ -14,7 +14,7 @@ class BlockUserRead(BaseModel):
     is_blocked: bool
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 # Schema for blocking/unblocking
 class BlockUserStatus(BaseModel):
