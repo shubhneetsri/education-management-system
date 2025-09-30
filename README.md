@@ -61,22 +61,27 @@ Without this, the exported text would just print to the terminal.
 
 **4️⃣ --without-hashes**
 Poetry can generate dependencies with hashes for security (to verify package integrity).
+
 --without-hashes removes those hashes, making the requirements.txt cleaner and compatible with standard pip install -r requirements.txt.
 
-
 uv pip sync requirements.txt
+
 uv doesn’t resolve dependencies itself — it just installs them very fast, much faster than Poetry or pip alone.
 
 
-Why use it if Poetry already installed them?
+**Why use it if Poetry already installed them?**
+
 Local dev: You usually don’t need uv — Poetry install is fine.
 CI/CD / Docker builds / large projects:
 Poetry install is slower, especially if there are 100+ dependencies.
 Using uv pip sync requirements.txt reuses the lockfile but installs much faster.
 
-This is why many companies combine them:
+**This is why many companies combine them:**
+
 Poetry → lockfile management (source of truth)
+
 uv → fast installation during builds
+
 
 Think of it as “Poetry manages what should be installed, uv just does it faster”.
 
@@ -84,15 +89,20 @@ Ah! This is an important concept for why FastAPI uses Uvicorn (an ASGI server) i
 WSGI (used by Flask, Django traditional apps).
 Uvicorn is a lightweight ASGI server written in Rust + Python.
 
+
 **Run the app with autoreload:
 **
 uvicorn education_management_system.main:app --reload
+
 
 **Pull postgres:**
 
 docker run --name my_postgres -e POSTGRES_USER=myuser -e POSTGRES_PASSWORD=mypassword -e POSTGRES_DB=mydb -p 5432:5432 -d postgres:latest
 
+
 **Add alembic and initialize migrations:**
 
 poetry add alembic
+
 alembic init migrations
+
