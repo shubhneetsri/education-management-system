@@ -2,7 +2,7 @@ import pytest
 import asyncio
 from sqlalchemy.ext.asyncio import AsyncEngine
 from sqlalchemy import text
-from education_management_system.core.db import engine
+from app.core.db import engine
 
 @pytest.mark.asyncio
 async def test_db_connection():

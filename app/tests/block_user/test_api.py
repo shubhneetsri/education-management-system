@@ -1,6 +1,6 @@
 import uuid
 from fastapi.testclient import TestClient
-from education_management_system.main import app
+from app.main import app
 
 client = TestClient(app)
 
